@@ -81,8 +81,7 @@ export default class Carousel extends Component {
     useScrollView: PropTypes.bool,
     vertical: PropTypes.bool,
     onBeforeSnapToItem: PropTypes.func,
-    onSnapToItem: PropTypes.func,
-    disableItemMargin: PropTypes.bool
+    onSnapToItem: PropTypes.func
   };
 
   static defaultProps = {
@@ -114,8 +113,7 @@ export default class Carousel extends Component {
     shouldOptimizeUpdates: true,
     swipeThreshold: 20,
     useScrollView: !AnimatedFlatList,
-    vertical: false,
-    disableItemMargin: false
+    vertical: false
   };
 
   constructor(props) {
@@ -594,14 +592,12 @@ export default class Carousel extends Component {
       itemWidth,
       itemHeight,
       vertical,
-      activeSlideAlignment,
-      disableItemMargin
+      activeSlideAlignment
     } = this.props;
 
     if (
       (activeSlideAlignment === "start" && !opposite) ||
-      (activeSlideAlignment === "end" && opposite) ||
-      disableItemMargin
+      (activeSlideAlignment === "end" && opposite)
     ) {
       return 0;
     } else if (
